@@ -1,8 +1,12 @@
-import React from 'react'
+import Enter from "@/components/Enter";
+
 const page = () => {
   return (
-    <div>page Login</div>
-  )
-}
+    <>
+      <div>page Login</div>
+           <Enter />
+    </>
+  );
+};
 
-export default page
+export default page;

@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="">
       <b className=" bg-amber-300">Brand Drive</b>
-      <Sandbox/>
+      <Sandbox />
     </div>
   );
 }
