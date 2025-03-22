@@ -1,6 +1,7 @@
 import Link from "next/link";
 import AuthButtons from "@/components/AuthButtons";
 import RegistrationButton from "@/components/RegistrationButton";
+import AuthStatus from "@/components/AuthStatus";
 
 export default function Header() {
   return (
@@ -10,7 +11,7 @@ export default function Header() {
           href="/"
           className="flex items-center self-center text-2xl font-semibold whitespace-nowrap hover:text-blue-900"
         >
-          BrandDrive FDCA
+          BrandDrive <AuthStatus />
         </Link>
       </menu>
       <aside className="flex justify-center items-center gap-2 md:gap-4">

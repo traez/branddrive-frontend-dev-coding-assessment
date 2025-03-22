@@ -1,16 +1,10 @@
-import { auth } from "@/lib/auth";
-import { headers } from "next/headers";
-import Sandbox from "@/components/Sandbox";
+import ContextSandbox from "@/components/ContextSandbox";
 
 export default async function Home() {
-  const session = await auth.api.getSession({
-    headers: await headers(),
-  });
 
   return (
     <div className="flex flex-col items-center justify-center h-full gap-8">
-      <p>{!session ? "Not authenticated" : session.user.name}</p>
-      <Sandbox />
+      <ContextSandbox />
     </div>
   );
 }
