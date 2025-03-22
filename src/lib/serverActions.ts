@@ -2,8 +2,9 @@
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { SignUpFormDataType } from "@/components/SignUp";
+import { SignInFormDataType } from "@/components/SignIn";
 
-export const signIn = async () => {
+/* export const signIn = async () => {
   await auth.api.signInEmail({
     body: {
       email: "trae@test.com",
@@ -11,18 +12,17 @@ export const signIn = async () => {
     },
   });
   redirect("/dashboard");
-};
+}; */
 
-/* export const signUp = async () => {
-  await auth.api.signUpEmail({
+export const signIn = async (data: SignInFormDataType) => {
+  await auth.api.signInEmail({
     body: {
-      email: "trae@test.com",
-      password: "password123",
-      name: "Trae Zeeofor",
+      email: data.email,
+      password: data.password,
     },
   });
-    redirect("/signin"); 
-}; */
+  redirect("/dashboard");
+};
 
 export const signUp = async (data: SignUpFormDataType) => {
   await auth.api.signUpEmail({
