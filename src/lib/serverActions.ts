@@ -1,5 +1,6 @@
 "use server";
 import { auth } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
 export const signIn = async () => {
   await auth.api.signInEmail({
@@ -8,6 +9,7 @@ export const signIn = async () => {
       password: "password123",
     },
   });
+  redirect("/dashboard"); 
 };
 
 export const signUp = async () => {
@@ -18,4 +20,5 @@ export const signUp = async () => {
       name: "Trae Zeeofor",
     },
   });
+    redirect("/signin"); 
 };

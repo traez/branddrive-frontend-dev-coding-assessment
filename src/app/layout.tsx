@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Notification from "@/components/Notification";
 import { Toaster } from "sonner";
 import BprogressProvider from "@/lib/BprogressProvider";
 import StateProvider from "@/lib/StateProvider";
@@ -23,6 +24,7 @@ export default function RootLayout({
           <BprogressProvider>
             <Header />
             <main className="flex-grow h-full w-full max-w-[1440px] bg-white">
+              <Notification />
               {children}
             </main>
             <Footer />

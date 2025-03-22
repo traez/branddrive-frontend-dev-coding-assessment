@@ -1,7 +1,12 @@
+import SignUp from "@/components/SignUp";
 
-
-const page = () => {
-  return <div>page registration</div>;
+const pageRegistration = () => {
+   return (
+     <>
+       <div>Registration SignUp</div>
+       <SignUp />
+     </>
+   );
 }
 
-export default page
+export default pageRegistration;
