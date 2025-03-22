@@ -9,7 +9,7 @@ export default async function AuthStatus() {
 
   return (
     <span className="ml-2 self-end text-sm font-medium">
-      ({!session ? "Unauthenticated" : session.user.name})
+      {"(" + (!session ? "Unauthenticated" : session.user.name) + ")"}
     </span>
   );
 }
