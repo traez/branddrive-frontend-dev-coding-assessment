@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { signUp } from "@/lib/serverActions";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation"; 
 
 // Define validation schema using zod
 const signUpSchema = z.object({
@@ -28,7 +27,6 @@ export type SignUpFormDataType = z.infer<typeof signUpSchema>;
 
 const SignUp = () => {
   const [isPending, startTransition] = useTransition();
-  const router = useRouter(); 
 
   const {
     register,
@@ -50,7 +48,9 @@ const SignUp = () => {
         toast.error(result.error);
       } else {
         toast.success("Account created successfully!");
-        router.push("/dashboard");
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 500);
       }
     });
   };

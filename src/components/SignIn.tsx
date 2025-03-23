@@ -37,7 +37,6 @@ const SignIn = () => {
         toast.error(result.error);
       } else {
         toast.success("Signed in successfully!");
-        // Add a small delay to ensure the cookie is set before redirect
         setTimeout(() => {
            window.location.href = "/dashboard";
         }, 500);
