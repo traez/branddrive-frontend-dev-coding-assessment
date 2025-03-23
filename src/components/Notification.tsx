@@ -1,12 +1,14 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 const notificationMessages = {
   auth_required: "Access denied. Please sign in to view the dashboard.",
 };
 
-export default function Notification() {
+// This is the component that uses the hook
+function NotificationContent() {
   const [message, setMessage] = useState("");
   const [visible, setVisible] = useState(false);
   const searchParams = useSearchParams();
@@ -78,5 +80,14 @@ export default function Notification() {
         </button>
       </div>
     </div>
+  );
+}
+
+// This is the main component that wraps the hook-using component in Suspense
+export default function Notification() {
+  return (
+    <Suspense fallback={null}>
+      <NotificationContent />
+    </Suspense>
   );
 }
