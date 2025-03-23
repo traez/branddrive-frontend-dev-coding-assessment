@@ -5,7 +5,7 @@ import AuthStatus from "@/components/AuthStatus";
 
 export default function Header() {
   return (
-    <nav className="flex flex-col justify-center items-center gap-1 md:flex-row md:justify-between py-1 px-4 border-b-2 border-gray-800 bg-[#CCC5BD] text-black w-full max-w-[1440px]">
+    <nav className="flex flex-col justify-center items-center gap-1 md:flex-row md:justify-between py-1 px-4 border-b-2 border-gray-800 bg-[#9CC3FF] text-black w-full max-w-[1440px]">
       <menu className="flex justify-start">
         <Link
           href="/"

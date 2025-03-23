@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <>
-      <footer className="p-2 flex flex-row justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm border-t-2 border-solid border-gray-800 bg-[#CCC5BD] text-blue-900 w-full max-w-[1440px]">
+      <footer className="p-2 flex flex-row justify-center items-center gap-4 sm:gap-8 text-xs sm:text-sm border-t-2 border-solid border-gray-800 bg-[#9CC3FF] text-blue-900 w-full max-w-[1440px]">
         <a
           href="https://github.com/traez/branddrive-frontend-dev-coding-assessment"
           target="_blank"
