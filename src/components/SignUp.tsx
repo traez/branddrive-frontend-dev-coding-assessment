@@ -3,7 +3,9 @@ import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { signUp } from "@/lib/serverActions"; // Ensure correct path
+import { signUp } from "@/lib/serverActions";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation"; 
 
 // Define validation schema using zod
 const signUpSchema = z.object({
@@ -26,6 +28,7 @@ export type SignUpFormDataType = z.infer<typeof signUpSchema>;
 
 const SignUp = () => {
   const [isPending, startTransition] = useTransition();
+  const router = useRouter(); 
 
   const {
     register,
@@ -41,7 +44,15 @@ const SignUp = () => {
   });
 
   const onSubmit = (data: SignUpFormDataType) => {
-    startTransition(() => signUp(data));
+    startTransition(async () => {
+      const result = await signUp(data);
+      if (result?.error) {
+        toast.error(result.error);
+      } else {
+        toast.success("Account created successfully!");
+        router.push("/dashboard");
+      }
+    });
   };
 
   return (
@@ -137,26 +148,3 @@ const SignUp = () => {
 };
 
 export default SignUp;
-
-/* "use client";
-import { useTransition } from "react";
-import { signUp } from "@/lib/serverActions"; // Ensure correct path
-
-const SignUp = () => {
-  const [isPending, startTransition] = useTransition();
-
-  return (
-    <>
-      <button
-        onClick={() => startTransition(signUp)}
-        className="cursor-pointer mt-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:bg-gray-400 flex justify-center items-center mx-auto"
-        disabled={isPending}
-      >
-        {isPending ? "Signing Up..." : "Sign Up"}
-      </button>
-    </>
-  );
-};
-
-export default SignUp;
- */

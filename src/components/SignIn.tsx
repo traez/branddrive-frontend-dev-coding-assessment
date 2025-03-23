@@ -3,7 +3,9 @@ import { useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { signIn } from "@/lib/serverActions"; // Ensure correct path
+import { signIn } from "@/lib/serverActions";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation"; 
 
 // Define validation schema using zod
 const signInSchema = z.object({
@@ -16,6 +18,7 @@ export type SignInFormDataType = z.infer<typeof signInSchema>;
 
 const SignIn = () => {
   const [isPending, startTransition] = useTransition();
+  const router = useRouter(); 
 
   const {
     register,
@@ -30,7 +33,15 @@ const SignIn = () => {
   });
 
   const onSubmit = (data: SignInFormDataType) => {
-    startTransition(() => signIn(data));
+    startTransition(async () => {
+      const result = await signIn(data);
+      if (result?.error) {
+        toast.error(result.error);
+      } else {
+        toast.success("Signed in successfully!");
+        router.push("/dashboard");
+      }
+    });
   };
 
   return (

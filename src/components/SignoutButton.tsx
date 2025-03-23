@@ -1,15 +1,33 @@
 "use client";
 import { useState } from "react";
-import { signOutUser } from "@/lib/signOutUser";
+import { authClient } from "@/lib/auth-client";
+import { toast } from "sonner";
+
+function signOutUser() {
+  return authClient.signOut({
+    fetchOptions: {
+      onSuccess: () => {
+        window.location.href = "/";
+      },
+      onError: (error) => {
+        throw error; 
+      },
+    },
+  });
+}
 
 export default function SignOutButton() {
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSignOut = () => {
+  const handleSignOut = async () => {
     setIsLoading(true);
-    signOutUser();
-    // Note: We don't need to set isLoading back to false because
-    // the page will reload after successful sign out
+    try {
+      await signOutUser();
+    } catch (error) {
+      setIsLoading(false); // Reset loading state on error
+      toast.error("Failed to sign out. Please try again.");
+      console.error("Sign out error:", error);
+    }
   };
 
   return (
