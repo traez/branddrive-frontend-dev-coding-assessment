@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import LineChart from "@/components/dashboard/LineChart";
 
 export const metadata: Metadata = {
   title: "BrandDrive Dashboard Linechart",
@@ -6,7 +7,11 @@ export const metadata: Metadata = {
 };
 
 const pageLinechart = () => {
-  return <div>pageLinechart</div>;
+   return (
+     <>
+       <LineChart />
+     </>
+   );
 };
 
 export default pageLinechart;
