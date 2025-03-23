@@ -13,16 +13,4 @@ export const auth = betterAuth({
     schema: schema,
   }),
   plugins: [nextCookies()],
-  /* user: {
-    modelName: "c3users",
-  },
-  session: {
-    modelName: "c3session",
-  },
-  account: {
-    modelName: "c3account",
-  },
-  verification: {
-    modelName: "c3verification",
-  }, */
 });
