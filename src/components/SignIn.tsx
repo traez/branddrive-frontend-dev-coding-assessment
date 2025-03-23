@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { signIn } from "@/lib/serverActions";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation"; 
 
 // Define validation schema using zod
 const signInSchema = z.object({
@@ -18,7 +17,6 @@ export type SignInFormDataType = z.infer<typeof signInSchema>;
 
 const SignIn = () => {
   const [isPending, startTransition] = useTransition();
-  const router = useRouter(); 
 
   const {
     register,
@@ -41,7 +39,7 @@ const SignIn = () => {
         toast.success("Signed in successfully!");
         // Add a small delay to ensure the cookie is set before redirect
         setTimeout(() => {
-          router.push("/dashboard");
+           window.location.href = "/dashboard";
         }, 500);
       }
     });
