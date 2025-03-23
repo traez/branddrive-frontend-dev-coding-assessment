@@ -1,6 +1,6 @@
-# Sandbox 5; (Cookies, Charts, Maps, Carousel and TailwindCSSV4)
+# BrandDrive Frontend Dev Coding Assessment
 
-Sandbox app for Cookies, Charts, Maps, Carousel and TailwindCSSV4
+A technical assessment to evaluate Developer skills
 
 ## Table of contents
 
@@ -20,7 +20,7 @@ Sandbox app for Cookies, Charts, Maps, Carousel and TailwindCSSV4
 
 ### The Challenge/User Stories
 
-Your task is to build a sandbox environment that integrates various frontend features, including cookie management, dynamic charts, interactive maps, and an image carousel, all styled with Tailwind CSS v4. Implement client-side storage using js-cookie for managing cookies, allowing users to store and retrieve small data efficiently. Use a charting library to visualize data interactively and integrate Leaflet with OpenStreetMap for an engaging mapping experience. Develop a customizable image carousel for seamless browsing of image collections. Ensure the UI is responsive and modern by leveraging Tailwind CSS v4, and structure your components for easy navigation and scalability.
+Building an intuitive and secure Business Intelligence (BI) Tool, this project focuses on delivering a seamless user experience with authentication, data visualization, and interactive dashboards. Users can register and log in, access protected pages, and view key business metrics such as total users, active sessions, and sales revenue through charts and data tables. The dashboard offers real-time insights with line, bar, and pie charts, while an auto-logout mechanism ensures session security. Developed with Next.js, Tailwind CSS, and Recharts/Chart.js, this project emphasizes responsive design, smooth state management, and clear data presentation, making it a robust, scalable, and visually engaging BI solution.
 
 ### Screenshot
 
@@ -28,8 +28,8 @@ Your task is to build a sandbox environment that integrates various frontend fea
 
 ### Links
 
-- Solution URL: [https://github.com/traez/sandbox-cookies-charts-maps-carousel-tailwind4](https://github.com/traez/sandbox-cookies-charts-maps-carousel-tailwind4)
-- Live Site URL: [https://sandbox-cookies-charts-maps-carousel-tailwind4.vercel.app/](https://sandbox-cookies-charts-maps-carousel-tailwind4.vercel.app/)
+- Solution URL: [https://github.com/traez/branddrive-frontend-dev-coding-assessment](https://github.com/traez/branddrive-frontend-dev-coding-assessment)
+- Live Site URL: [https://branddrive-frontend-dev-coding-assessment.vercel.app/](https://branddrive-frontend-dev-coding-assessment.vercel.app/)
 
 ## My process
 
@@ -47,97 +47,40 @@ Your task is to build a sandbox environment that integrates various frontend fea
 - bprogress/next
 - chart.js
 - react-chartjs-2
-- js-cookie
-- leaflet
-- react-leaflet
-- react-alice-carousel
+- tanstack/react-table  
+- better-auth  
+- react-hook-form  
+- hookform/resolvers  
+- zod  
+- postgres  
+- drizzle-orm  
+- dotenv  
+- react-icons  
+- sonner  
 
 ### What I learned
 
-**1 Cookie Management in TypeScript**  
-Install dependencies: `npm i js-cookie` and `npm i -D @types/js-cookie` for TypeScript support  
-Must use client-side components in Next.js when working with cookies  
-Follow documentation from current version v3.0.5
+**1 Next.js Navigation Patterns**  
+In Next.js, both `redirect()` and `router.push()` are used for navigation, but they work differently depending on whether you're working on the server or client side.  
+✔ Use `redirect()` (server-side) when you need an immediate redirect and want to stop execution.  
+✔ Use `router.push()` (client-side) when you need smooth, SPA-like navigation in response to user actions.  
 
-**2 Top 5 Cookie Use Cases**
+**2 React Hooks: useTransition**  
+`useTransition` is a React Hook that lets you defer state updates, improving UI responsiveness. It returns a tuple:  
+`const [isPending, startTransition] = useTransition();`  
+- `isPending` (boolean) – Indicates if a transition is ongoing.  
+- `startTransition` (function) – Wrap expensive updates inside it to mark them as low-priority.  
 
-- [A] Authentication & Sessions
-  Store JWTs or session tokens securely with expiration  
-  Enhanced security over localStorage by reducing XSS risks  
-  Prevents persistent sessions for inactive users
-- [B] User Preferences & Personalization
-  Save settings like theme preference, language, or layout choices  
-  Ensures preferences persist across sessions  
-  No authentication or backend storage required
-- [C] Shopping Cart & E-commerce  
-  Maintain cart contents between sessions  
-  Improves user experience by preserving selections  
-  Reduces cart abandonment rates
-- [D] Remember Me & Auto-login
-  Enable persistent login across browser sessions  
-  Store tokens with appropriate expiration  
-  Balance convenience with security considerations
-- [E] Rate Limiting & Preventing Spam
-  Track form submissions or API requests  
-  Prevent multiple submissions in short periods  
-  Ensure fair use of application
+**3 Authentication: BetterAuth**  
+First use of BetterAuth after hearing much hype about it over Auth.js. BetterAuth is a framework-agnostic TypeScript authentication library that simplifies auth implementation across React, Next.js, Vue, Svelte, and more. It supports email/password, OAuth (Google, GitHub, Discord), two-factor authentication (2FA), and multi-tenancy for teams. With a plugin ecosystem and security-focused features, it ensures seamless authentication.  
 
-**3 Chart.js Integration**  
-Useful resources:
+**4 API Mocking: MSW**  
+MSW (Mock Service Worker) is a powerful API mocking library for JavaScript and TypeScript. It intercepts network requests at the browser or Node.js level, enabling realistic API mocking without modifying application code. Ideal for testing and development, MSW supports REST and GraphQL, ensuring seamless integration with frontend and backend workflows. It improves developer experience by providing accurate, controlled responses.  
 
-- [https://blog.logrocket.com/using-chart-js-react/](https://blog.logrocket.com/using-chart-js-react/)
-- [https://react-chartjs-2.js.org/](https://react-chartjs-2.js.org/)
-
-**4 Tailwind CSS v4 Global Styling**  
-Global stylesheet is teh new approach replacing tailwind.config.ts  
-Use `@layer base { }` for default styling:  
-`@layer base {`
-` * {`
-`  margin: 0;`
-`  padding: 0;`
-`  box-sizing: border-box;`
-`  scroll-behavior: smooth;`
-` }`
-`}`  
-Use `@theme inline {}` to extend Tailwind for custom colors and fonts
-
-**5 Tailwind CSS Animation**  
-`animate-pulse` utility applies a subtle pulsing animation  
-Commonly used for loading skeletons or to indicate background processes  
-Example: `<div class="w-32 h-32 bg-gray-300 animate-pulse"></div>`  
-Best for skeleton loaders, button feedback, and loading indicators
-
-**6 UI Enhancement Tools**  
-BProgress: A successor to Next NProgress Bar for page loading indicators
-
-**7 Next.js Advanced Features**  
-Implemented nested layouts for complex page structures  
-First experience with dynamic imports using next/dynamic
-
-**8 Next.js Authentication Middleware**  
-Checks for "user" cookie to manage authentication-based redirects  
-Redirects unauthorized users from protected routes to /login  
-Prevents authenticated users from accessing /login or /register  
-Uses NextResponse from "next/server" for handling redirects at the Edge
-
-**9 Map Integration**  
-Leaflet + react-leaflet + OpenStreetMap (OSM) provides a free alternative to Mapbox  
-Similar functionality with more setup required  
-Added type definitions with `npm install -D @types/leaflet`
-
-**10 State Management Debugging**  
-Redux DevTools Chrome extension works with any state management solution  
-Supports custom implementations when integrated with its API
-
-**11 Zustand Middleware**  
-`persist(...)`: Saves store state to localStorage for persistence across page reloads  
-`devtools(...)`: Enables Redux DevTools support for debugging store changes
-
-**12 VS Code Productivity Tips**  
-On Windows, hover over undefined terms and press Ctrl + Space for autocomplete  
-Press Enter to auto-import the module  
-Alternative: Ctrl + . to open Quick Fix and select "Add Import"  
-Ensure auto-imports are enabled in settings
+**5 Project Shortcomings**  
+I couldn't fulfill the following project requirements:  
+1. Include a "Keep me logged in" checkbox. If "Keep me logged in" is not selected, auto-logout the user after 1 minute of inactivity.
+2. Mock API calls either with an external mocking service or with MSW (Mock Service Worker). Instead, I implemented a real backend with BetterAuth, Drizzle and Supabase.
 
 ### Continued development
 

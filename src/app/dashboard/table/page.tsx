@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import TableData from "@/components/dashboard/TableData";
 
 export const metadata: Metadata = {
   title: "BrandDrive Dashboard Table",
@@ -6,7 +7,11 @@ export const metadata: Metadata = {
 };
 
 const pageTable = () => {
-  return <div>pageTable</div>;
+   return (
+     <>
+       <TableData />
+     </>
+   );
 }
 
 export default pageTable;
