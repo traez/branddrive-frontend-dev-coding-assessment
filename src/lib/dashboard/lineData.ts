@@ -1,11 +1,11 @@
-export interface SalesDataPoint {
+export interface LineDataPoint {
   id: number;
   year: number;
   revenue: number;
   unitsSold: number;
 }
 
-export const salesData: SalesDataPoint[] = [
+export const lineData: LineDataPoint[] = [
   { id: 1, year: 2016, revenue: 120000, unitsSold: 2450 },
   { id: 2, year: 2017, revenue: 156000, unitsSold: 3200 },
   { id: 3, year: 2018, revenue: 178500, unitsSold: 3800 },

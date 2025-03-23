@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import BarChart from "@/components/dashboard/BarChart";
 
 export const metadata: Metadata = {
   title: "BrandDrive Dashboard Barchart",
@@ -6,7 +7,11 @@ export const metadata: Metadata = {
 };
 
 const pageBarchart = () => {
-  return <div>pageBarchart</div>;
+  return (
+    <>
+      <BarChart />
+    </>
+  );
 };
 
 export default pageBarchart;

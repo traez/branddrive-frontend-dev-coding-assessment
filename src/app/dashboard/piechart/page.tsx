@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PieChart from "@/components/dashboard/PieChart";
 
 export const metadata: Metadata = {
   title: "BrandDrive Dashboard Piechart",
@@ -6,7 +7,11 @@ export const metadata: Metadata = {
 };
 
 const pagePiechart = () => {
-  return <div>pagePiechart</div>;
+ return (
+   <>
+     <PieChart />
+   </>
+ );
 };
 
 export default pagePiechart;

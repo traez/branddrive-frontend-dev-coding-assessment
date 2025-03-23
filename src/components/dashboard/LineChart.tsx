@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import "@/lib/dashboard/chartConfig";
-import { salesData } from "@/lib/dashboard/salesData";
+import { lineData } from "@/lib/dashboard/lineData";
 import { Line } from "react-chartjs-2";
 import { ChartData } from "chart.js/auto"; // TypeScript types
 
@@ -67,11 +67,11 @@ const LineChart = () => {
 
   // Define chartData as a constant
   const chartData = {
-    labels: salesData.map((item) => item.year.toString()),
+    labels: lineData.map((item) => item.year.toString()),
     datasets: [
       {
         label: "Revenue ($)",
-        data: salesData.map((item) => item.revenue),
+        data: lineData.map((item) => item.revenue),
         backgroundColor: "rgba(75, 192, 192, 0.2)",
         borderColor: "#4BC0C0",
         borderWidth: 2,
@@ -84,7 +84,7 @@ const LineChart = () => {
       },
       {
         label: "Units Sold",
-        data: salesData.map((item) => item.unitsSold),
+        data: lineData.map((item) => item.unitsSold),
         backgroundColor: "rgba(255, 159, 64, 0.2)",
         borderColor: "#FF9F40",
         borderWidth: 2,
