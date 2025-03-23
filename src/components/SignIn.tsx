@@ -39,7 +39,10 @@ const SignIn = () => {
         toast.error(result.error);
       } else {
         toast.success("Signed in successfully!");
-        router.push("/dashboard");
+        // Add a small delay to ensure the cookie is set before redirect
+        setTimeout(() => {
+          router.push("/dashboard");
+        }, 500);
       }
     });
   };
