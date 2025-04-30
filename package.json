@@ -21,6 +21,7 @@
     "dotenv": "^16.4.7",
     "drizzle-orm": "^0.40.1",
     "next": "15.2.3",
+    "nextjs-toploader": "^3.8.16",
     "postgres": "^3.4.5",
     "react": "^19.0.0",
     "react-chartjs-2": "^5.3.0",

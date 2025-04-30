@@ -4,7 +4,7 @@ import { Toaster } from "sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Notification from "@/components/Notification";
-import BprogressProvider from "@/lib/BprogressProvider";
+import NextJsTopLoader from "@/lib/NextJsTopLoader";
 
 export const metadata: Metadata = {
   title: "BrandDrive Frontend Dev Coding Assessment",
@@ -19,14 +19,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased flex flex-col justify-center items-center min-h-screen w-full font-trebuchetMs bg-[#E8F1FF]">
-        <BprogressProvider>
-          <Header />
-          <main className="flex-grow h-full w-full max-w-[1440px] bg-white">
-            <Notification />
-            {children}
-          </main>
-          <Footer />
-        </BprogressProvider>
+        <NextJsTopLoader />
+        <Header />
+        <main className="flex-grow h-full w-full max-w-[1440px] bg-white">
+          <Notification />
+          {children}
+        </main>
+        <Footer />
         <Toaster position="top-center" />
       </body>
     </html>
