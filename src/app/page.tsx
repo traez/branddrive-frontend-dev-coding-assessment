@@ -3,6 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center h-full w-full p-4 text-center">
+
       <h1 className="text-4xl font-bold text-gray-900 dark:text-gray-100">
         Mini Business Intelligence Tool
       </h1>
@@ -22,6 +23,7 @@ export default function Home() {
           className="object-contain rounded-lg"
         />
       </div>
+      
     </section>
   );
 }
