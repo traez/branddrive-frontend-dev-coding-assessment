@@ -82,6 +82,9 @@ I couldn't fulfill the following project requirements:
 1. Include a "Keep me logged in" checkbox. If "Keep me logged in" is not selected, auto-logout the user after 1 minute of inactivity.
 2. Mock API calls either with an external mocking service or with MSW (Mock Service Worker). Instead, I implemented a real backend with BetterAuth, Drizzle and Supabase.
 
+**6 Database Migration (Supabase to Railway)**  
+On June 17, 2026, I migrated the application's underlying database infrastructure from Supabase to Railway. This involved exporting the PostgreSQL schema and data via standard CLI utilities (pg_dump/psql) and updating the environment variables (DATABASE_URL) within Vercel to point to the new Railway instance. The transition was seamless with zero code changes required, demonstrating the portability of a decoupled, environment-driven database architecture.  
+
 ### Continued development
 
 - More projects; increased competence!
