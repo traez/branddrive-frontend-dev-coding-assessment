@@ -73,6 +73,7 @@ In Next.js, both `redirect()` and `router.push()` are used for navigation, but t
 
 **3 Authentication: BetterAuth**  
 First use of BetterAuth after hearing much hype about it over Auth.js. BetterAuth is a framework-agnostic TypeScript authentication library that simplifies auth implementation across React, Next.js, Vue, Svelte, and more. It supports email/password, OAuth (Google, GitHub, Discord), two-factor authentication (2FA), and multi-tenancy for teams. With a plugin ecosystem and security-focused features, it ensures seamless authentication.  
+Username: trevor@mail.com, Password: P@ssw0rd
 
 **4 API Mocking: MSW**  
 MSW (Mock Service Worker) is a powerful API mocking library for JavaScript and TypeScript. It intercepts network requests at the browser or Node.js level, enabling realistic API mocking without modifying application code. Ideal for testing and development, MSW supports REST and GraphQL, ensuring seamless integration with frontend and backend workflows. It improves developer experience by providing accurate, controlled responses.  
