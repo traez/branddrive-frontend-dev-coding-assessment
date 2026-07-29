@@ -29,7 +29,7 @@ Building an intuitive and secure Business Intelligence (BI) Tool, this project f
 ### Links
 
 - Solution URL: [https://github.com/traez/branddrive-frontend-dev-coding-assessment](https://github.com/traez/branddrive-frontend-dev-coding-assessment)
-- Live Site URL: [https://branddrive-frontend-dev-coding-assessment.vercel.app/](https://branddrive-frontend-dev-coding-assessment.vercel.app/)
+- Live Site URL: [https://branddrive.zeeofor.tech/](https://branddrive.zeeofor.tech/)
 
 ## My process
 
