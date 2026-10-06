@@ -36,6 +36,11 @@ yarn-error.log*
 # vercel
 .vercel
 
+# db dumps at repo root (contain password hashes + sessions — never commit)
+# NOTE: root-scoped only so tracked supabase/migrations/*.sql still commits
+*.dump
+/*.sql
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -29,7 +29,7 @@ Building an intuitive and secure Business Intelligence (BI) Tool, this project f
 ### Links
 
 - Solution URL: [https://github.com/traez/branddrive-frontend-dev-coding-assessment](https://github.com/traez/branddrive-frontend-dev-coding-assessment)
-- Live Site URL: [https://branddrive.zeeofor.tech/](https://branddrive.zeeofor.tech/)
+- Live Site URL: [https://branddrive-assessment.vercel.app/](https://branddrive-assessment.vercel.app/)
 
 ## My process
 
@@ -83,9 +83,10 @@ I couldn't fulfill the following project requirements:
 1. Include a "Keep me logged in" checkbox. If "Keep me logged in" is not selected, auto-logout the user after 1 minute of inactivity.
 2. Mock API calls either with an external mocking service or with MSW (Mock Service Worker). Instead, I implemented a real backend with BetterAuth, Drizzle and Supabase.
 
-**6 Database & Infrastructure Migration (Supabase → Railway → Hetzner/Coolify)**  
+**6 Database & Infrastructure Migration (Supabase → Railway → Hetzner/Coolify → Supabase + Vercel)**  
 1. June 17, 2026 (Supabase to Railway): Migrated the core database infrastructure using standard CLI utilities (pg_dump/psql). Updated DATABASE_URL in Vercel to target the Railway instance, achieving a zero-code-change transition that validated the portability of a decoupled, environment-driven architecture.  
 2. July 23, 2026 (Railway to Hetzner/Coolify): Fully migrated both the PostgreSQL database and the application repository to a self-hosted Hetzner VPS managed via Coolify, unifying hosting and database operations under a self-managed, cost-effective infrastructure.
+3. October 6, 2026 (Hetzner/Coolify to Supabase + Vercel): Exported Branddrive Postgres from Coolify over an SSH tunnel (`pg_dump -Fc`) and restored into a single Supabase project for dev + prod (`pg_restore` via pooler with `--schema=public`). App deployed to Vercel at https://branddrive-assessment.vercel.app/ with `BETTER_AUTH_URL` updated. Reason: hobby project moves to free hosts to preserve paid Hetzner/Coolify resources for paying projects. Zero code changes — `DATABASE_URL` swap only (see `AGENTS.md` §5a).
 
 ### Continued development
 
